@@ -11,6 +11,7 @@ NumericMatrix propagator_1st_Rcpp(NumericMatrix neighbor,
   NumericMatrix H1(n, n);
   
   for(int i = 0; i < n; i++){
+    
     if(sum(neighbor(i,_)>0)==4){
       H1(i,i) = 1-2*diffu_rate(i)*dt/pow(dx, 2.0)-2*diffu_rate(i)*dt/pow(dy, 2.0)+
         growth_rate(i)*dt;
@@ -34,6 +35,7 @@ NumericMatrix propagator_2nd_Rcpp(NumericMatrix neighbor,
   NumericMatrix H2(n, n);
   
   for(int i = 0; i < n; i++){
+    
     if(sum(neighbor(i,_)>0)==4){
       H2(i,i) = -growth_rate2(i)*dt;
     }
@@ -52,6 +54,7 @@ NumericVector propagator_2nd_vec_Rcpp(NumericMatrix neighbor,
   NumericVector H2_vec(n);
   
   for(int i = 0; i < n; i++){
+    
     if(sum(neighbor(i,_)>0)==4){
       H2_vec(i) = -growth_rate2(i)*dt;
     }
