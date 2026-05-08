@@ -23,3 +23,8 @@ The dataset includes the following variables:
 -   **DEM_30m**: Elevation (Digital Elevation Model at 30 m resolution)
 -   **Stream**: Indicator of whether a stream is present in the grid cell
 -   **Climatic variables**: Additional environmental covariates (varying slightly across years, which accounts for the increase in the number of columns after 2019)
+
+### Examples
+
+-   The `examples` folder contains sample datasets for the years 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2019, and 2020.
+-   Each CSV file includes the first 100 observations from the corresponding year.
