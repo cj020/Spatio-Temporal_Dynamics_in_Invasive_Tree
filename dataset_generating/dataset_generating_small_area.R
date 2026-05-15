@@ -1,4 +1,4 @@
-# Small region dataset generating with dimension 300 by 300
+# Generating Small region dataset with dimension 300 by 300
 
 library(tidyverse)
 library(mvtnorm)

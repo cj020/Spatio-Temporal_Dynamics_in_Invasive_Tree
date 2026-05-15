@@ -1,4 +1,4 @@
-# draw the plots of the small region selected
+# Generating plots of the small region selected
 
 library(tidyverse)
 library(mvtnorm)
@@ -10,7 +10,7 @@ library(patchwork)
 library(viridis)
 library(RColorBrewer)
 
-setwd("/small_region/raw_data/plots")
+setwd("/small_region/data/plots")
 
 # Load dataset 
 dat1985 <- read.csv("/raw_data/1985.csv")
