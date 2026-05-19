@@ -11,44 +11,48 @@ library(viridis)
 library(RColorBrewer)
 
 setwd("/small_region/data/plots")
+rawdata_dir <- "/raw_data"
+rawplot_dir <- "/raw_data/plots"
+small_region_data_dir <- "/small_region/data"
+small_region_plot_dir <- "/small_region/data/plots"
 
 # Load dataset 
-dat1985 <- read.csv("/raw_data/1985.csv")
-dat1986 <- read.csv("/raw_data/1986.csv")
-dat1987 <- read.csv("/raw_data/1987.csv")
-dat1988 <- read.csv("/raw_data/1988.csv")
-dat1989 <- read.csv("/raw_data/1989.csv")
-dat1990 <- read.csv("/raw_data/1990.csv")
-dat1991 <- read.csv("/raw_data/1991.csv")
-dat1992 <- read.csv("/raw_data/1992.csv")
-dat1993 <- read.csv("/raw_data/1993.csv")
-dat1994 <- read.csv("/raw_data/1994.csv")
-dat1995 <- read.csv("/raw_data/1995.csv")
-dat1996 <- read.csv("/raw_data/1996.csv")
-dat1997 <- read.csv("/raw_data/1997.csv")
-dat1998 <- read.csv("/raw_data/1998.csv")
-dat1999 <- read.csv("/raw_data/1999.csv")
-dat2000 <- read.csv("/raw_data/2000.csv")
-dat2001 <- read.csv("/raw_data/2001.csv")
-dat2002 <- read.csv("/raw_data/2002.csv")
-dat2003 <- read.csv("/raw_data/2003.csv")
-dat2004 <- read.csv("/raw_data/2004.csv")
-dat2005 <- read.csv("/raw_data/2005.csv")
-dat2006 <- read.csv("/raw_data/2006.csv")
-dat2007 <- read.csv("/raw_data/2007.csv")
-dat2008 <- read.csv("/raw_data/2008.csv")
-dat2009 <- read.csv("/raw_data/2009.csv")
-dat2010 <- read.csv("/raw_data/2010.csv")
-dat2011 <- read.csv("/raw_data/2011.csv")
-dat2012 <- read.csv("/raw_data/2012.csv")
-dat2013 <- read.csv("/raw_data/2013.csv")
-dat2014 <- read.csv("/raw_data/2014.csv")
-dat2015 <- read.csv("/raw_data/2015.csv")
-dat2016 <- read.csv("/raw_data/2016.csv")
-dat2017 <- read.csv("/raw_data/2017.csv")
-dat2018 <- read.csv("/raw_data/2018.csv")
-dat2019 <- read.csv("/raw_data/2019.csv")
-dat2020 <- read.csv("/raw_data/2020.csv")
+dat1985 <- read.csv(file.path(rawdata_dir, "1985.csv"))
+dat1986 <- read.csv(file.path(rawdata_dir, "1986.csv"))
+dat1987 <- read.csv(file.path(rawdata_dir, "1987.csv"))
+dat1988 <- read.csv(file.path(rawdata_dir, "1988.csv"))
+dat1989 <- read.csv(file.path(rawdata_dir, "1989.csv"))
+dat1990 <- read.csv(file.path(rawdata_dir, "1990.csv"))
+dat1991 <- read.csv(file.path(rawdata_dir, "1991.csv"))
+dat1992 <- read.csv(file.path(rawdata_dir, "1992.csv"))
+dat1993 <- read.csv(file.path(rawdata_dir, "1993.csv"))
+dat1994 <- read.csv(file.path(rawdata_dir, "1994.csv"))
+dat1995 <- read.csv(file.path(rawdata_dir, "1995.csv"))
+dat1996 <- read.csv(file.path(rawdata_dir, "1996.csv"))
+dat1997 <- read.csv(file.path(rawdata_dir, "1997.csv"))
+dat1998 <- read.csv(file.path(rawdata_dir, "1998.csv"))
+dat1999 <- read.csv(file.path(rawdata_dir, "1999.csv"))
+dat2000 <- read.csv(file.path(rawdata_dir, "2000.csv"))
+dat2001 <- read.csv(file.path(rawdata_dir, "2001.csv"))
+dat2002 <- read.csv(file.path(rawdata_dir, "2002.csv"))
+dat2003 <- read.csv(file.path(rawdata_dir, "2003.csv"))
+dat2004 <- read.csv(file.path(rawdata_dir, "2004.csv"))
+dat2005 <- read.csv(file.path(rawdata_dir, "2005.csv"))
+dat2006 <- read.csv(file.path(rawdata_dir, "2006.csv"))
+dat2007 <- read.csv(file.path(rawdata_dir, "2007.csv"))
+dat2008 <- read.csv(file.path(rawdata_dir, "2008.csv"))
+dat2009 <- read.csv(file.path(rawdata_dir, "2009.csv"))
+dat2010 <- read.csv(file.path(rawdata_dir, "2010.csv"))
+dat2011 <- read.csv(file.path(rawdata_dir, "2011.csv"))
+dat2012 <- read.csv(file.path(rawdata_dir, "2012.csv"))
+dat2013 <- read.csv(file.path(rawdata_dir, "2013.csv"))
+dat2014 <- read.csv(file.path(rawdata_dir, "2014.csv"))
+dat2015 <- read.csv(file.path(rawdata_dir, "2015.csv"))
+dat2016 <- read.csv(file.path(rawdata_dir, "2016.csv"))
+dat2017 <- read.csv(file.path(rawdata_dir, "2017.csv"))
+dat2018 <- read.csv(file.path(rawdata_dir, "2018.csv"))
+dat2019 <- read.csv(file.path(rawdata_dir, "2019.csv"))
+dat2020 <- read.csv(file.path(rawdata_dir, "2020.csv"))
 
 # Sort data in 2019 and 2020 by X
 dat2019 <- dat2019 %>% arrange(X)
@@ -81,7 +85,7 @@ dat85.all <- dat1985 %>% filter(Longitude >= -100.68 & Longitude <= -100.20 &
 s1.85.all <- rep(c(N1:1), each = N2)
 s2.85.all <- rep(c(1:N2), N1)
 dat85.all <- dat85.all %>% mutate(s1 = s1.85.all, s2=s2.85.all, trees = trees/100)
-png(filename = "/raw_data/plots/observation in 1985 full.png")
+png(filename = file.path(rawplot_dir, "observation in 1985 full.png"))
 ggplot(data = dat85.all, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -104,7 +108,7 @@ dat95.all <- dat1995 %>% filter(Longitude >= -100.68 & Longitude <= -100.20 &
 s1.95.all <- rep(c(N1:1), each = N2)
 s2.95.all <- rep(c(1:N2), N1)
 dat95.all <- dat95.all %>% mutate(s1 = s1.95.all, s2=s2.95.all, trees = trees/100)
-png(filename = "/raw_data/plots/observation in 1995 full.png")
+png(filename = file.path(rawplot_dir, "observation in 1995 full.png"))
 ggplot(data = dat95.all, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -127,7 +131,7 @@ dat05.all <- dat2005 %>% filter(Longitude >= -100.68 & Longitude <= -100.20 &
 s1.05.all <- rep(c(N1:1), each = N2)
 s2.05.all <- rep(c(1:N2), N1)
 dat05.all <- dat05.all %>% mutate(s1 = s1.05.all, s2=s2.05.all, trees = trees/100)
-png(filename = "/raw_data/plots/observation in 2005 full.png")
+png(filename = file.path(rawplot_dir, "observation in 2005 full.png"))
 ggplot(data = dat05.all, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -150,7 +154,7 @@ dat15.all <- dat2015 %>% filter(Longitude >= -100.68 & Longitude <= -100.20 &
 s1.15.all <- rep(c(N1:1), each = N2)
 s2.15.all <- rep(c(1:N2), N1)
 dat15.all <- dat15.all %>% mutate(s1 = s1.15.all, s2=s2.15.all, trees = trees/100)
-png(filename = "/raw_data/plots/observation in 2015 full.png")
+png(filename = file.path(rawplot_dir, "/observation in 2015 full.png"))
 ggplot(data = dat15.all, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -173,7 +177,7 @@ dat20.all <- dat2020 %>% filter(Longitude >= -100.68 & Longitude <= -100.20 &
 s1.20.all <- rep(c(N1:1), each = N2)
 s2.20.all <- rep(c(1:N2), N1)
 dat20.all <- dat20.all %>% mutate(s1 = s1.20.all, s2=s2.20.all, trees = trees/100)
-png(filename = "/raw_data/plots/observation in 2020 full.png")
+png(filename = file.path(rawplot_dir, "observation in 2020 full.png"))
 ggplot(data = dat20.all, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -192,7 +196,7 @@ dev.off()
 
 # Stream
 stream.all <- dat20.all %>% mutate(s1 = s1.20.all, s2=s2.20.all, stream = Stream)
-png(filename = "/raw_data/plots/stream full.png")
+png(filename = file.path(rawplot_dir, "stream full.png"))
 ggplot(data = stream.all, aes(s1*LoG, s2*LoG, fill = stream)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue", limit = c(0,1)) +
@@ -210,7 +214,7 @@ dev.off()
 
 # Elevation
 elevation.all <- dat20.all %>% mutate(s1 = s1.20.all, s2=s2.20.all, elevation = DEM_30m)
-png(filename = "/raw_data/plots/elevation full.png")
+png(filename = file.path(rawplot_dir, "elevation full.png"))
 ggplot(data = elevation.all, aes(s1*LoG, s2*LoG, fill = elevation)) +
   geom_tile() +
   ggtitle(" ") +
@@ -287,7 +291,7 @@ combined_plot_obs_8515_tl <- plot.obs85.tl + plot.obs15.tl +
         plot.margin = margin(t = 20, r = 10, b = 20, l = 10))
 
 # Comparison tree cover between 1985 and 2015
-png(filename = "/raw_data/plots/obs_8515_inside_title.png", height = 5000, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "obs_8515_inside_title.png"), height = 5000, width = 6000, res = 300)
 combined_plot_obs_8515_tl
 dev.off()
 
@@ -309,7 +313,7 @@ combined_plot_obs_8515_str_tl <- plot.obs85.str + plot.obs15.str +
         plot.margin = margin(t = 20, r = 10, b = 20, l = 10))
 
 # Comparison tree cover between 1985 and 2015
-png(filename = "/raw_data/plots/obs_8515_str_inside_title.png", height = 5000, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "obs_8515_str_inside_title.png"), height = 5000, width = 6000, res = 300)
 combined_plot_obs_8515_str_tl
 dev.off()
 
@@ -356,7 +360,7 @@ plot.obsdiff.8515 <- ggplot(data = dat.diff.8515, aes(s1*LoG, s2*LoG, fill = obs
     legend.margin = margin(20, 40, 20, 40)) +
   coord_equal()
 
-png(filename = "/raw_data/plots/obs_diff_8515_no_stream_inside_title.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "obs_diff_8515_no_stream_inside_title.png"), height = 2500, width = 6000, res = 300)
 plot.obsdiff.8515
 dev.off()
 
@@ -366,7 +370,7 @@ plot.obsdiff <- plot.obsdiff.8515 + geom_point(data = subset(dat.diff.8515, Stre
                                                size = 0.5,
                                                inherit.aes = FALSE)
 
-png(filename = "/raw_data/plots/obs_diff_8515_inside_title.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "obs_diff_8515_inside_title.png"), height = 2500, width = 6000, res = 300)
 plot.obsdiff
 dev.off()
 
@@ -400,13 +404,13 @@ plot.elevation <- ggplot(data = elevation.all, aes(s1*LoG, s2*LoG, fill = DEM_30
   coord_equal()
 
 # Plot of elevation
-png(filename="/raw_data/plots/elevation_full_no_title.png", height = 2200, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "elevation_full_no_title.png"), height = 2200, width = 6000, res = 300)
 plot.elevation
 dev.off()
 
 plot.elevation.tl <- plot.elevation + labs(title = "Elevation in the Sandhills Region") + title.plot
 
-png(filename="/raw_data/plots/elevation_full.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "elevation_full.png"), height = 2500, width = 6000, res = 300)
 plot.elevation.tl
 dev.off()
 
@@ -417,7 +421,7 @@ plot.elevation.str <- plot.elevation.tl + geom_point(data = subset(dat85.all, St
                                                      inherit.aes = FALSE)
 
 # Plot of elevation with stream
-png(filename="/raw_data/plots/elevation_str_full.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(rawplot_dir, "elevation_str_full.png"), height = 2500, width = 6000, res = 300)
 plot.elevation.str
 dev.off()
 
@@ -435,13 +439,13 @@ plot.stream.blue <- ggplot(data = dat85.all, aes(s1*LoG, s2*LoG, fill = Stream))
   coord_equal() 
 
 # Plot of stream
-png(filename="/raw_data/plots/stream_full_blue_no_title.png", height = 2200, width = 5500, res = 300)
+png(filename = file.path(rawplot_dir, "stream_full_blue_no_title.png"), height = 2200, width = 5500, res = 300)
 plot.stream.blue
 dev.off()
 
 plot.stream.blue.tl <- plot.stream.blue + labs(title = "Stream in the Sandhills Region") + title.plot
 
-png(filename="/raw_data/plots/stream_full_blue.png", height = 2500, width = 5500, res = 300)
+png(filename = file.path(rawplot_dir, "stream_full_blue.png"), height = 2500, width = 5500, res = 300)
 plot.stream.blue.tl
 dev.off()
 
@@ -458,13 +462,13 @@ plot.stream.black <- ggplot(data = dat85.all, aes(s1*LoG, s2*LoG, fill = Stream)
         legend.position = "none") +
   coord_equal() 
 
-png(filename="/raw_data/plots/stream_full_black_no_title.png", height = 2200, width = 5500, res = 300)
+png(filename = file.path(rawplot_dir, "stream_full_black_no_title.png"), height = 2200, width = 5500, res = 300)
 plot.stream.black
 dev.off()
 
 plot.stream.black.tl <- plot.stream.black + labs(title = "Stream in the Sandhills Region") + title.plot
 
-png(filename="/raw_data/plots/stream_full_black.png", height = 2500, width = 5500, res = 300)
+png(filename = file.path(rawplot_dir, "stream_full_black.png"), height = 2500, width = 5500, res = 300)
 plot.stream.black.tl
 dev.off()
 
@@ -493,7 +497,7 @@ ggplot(data = dat15, aes(s1, s2, fill = trees)) +
 range_x <- c(-100.3346, -100.254)
 range_y <- c(42.86405, 42.94464)
 
-sink(file = "/small_region/data/longitude and latitude.txt")
+sink(file = file.path(small_region_data_dir, "longitude and latitude.txt"))
 cat("dimension N: ")
 N
 cat("longitude range: ")
@@ -709,7 +713,7 @@ df <- cbind(df, s1, s2)
 
 # Plot of small area
 df2015 <- df %>% filter(year == 2015) %>% mutate(tree_coverage = trees/100, elevation = DEM_30m)
-png(filename = "/small_region/data/plots/observation in 2015 original 300 by 300.png")
+png(filename = file.path(small_region_plot_dir, "observation in 2015 original 300 by 300.png"))
 ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = tree_coverage)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -726,7 +730,7 @@ ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = tree_coverage)) +
 dev.off()
 
 # Plot of stream in small area
-png(filename = "/small_region/data/plots/stream in 2015 original 300 by 300.png")
+png(filename = file.path(small_region_plot_dir, "stream in 2015 original 300 by 300.png"))
 ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = Stream)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -743,7 +747,7 @@ ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = Stream)) +
 dev.off()
 
 # Plot of elevation in smal area
-png(filename = "/small_region/data/plots/elevation in 2015 original 300 by 300.png")
+png(filename = file.path(small_region_plot_dir, "elevation in 2015 original 300 by 300.png"))
 ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = elevation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = c(0,1)) +
@@ -760,7 +764,7 @@ ggplot(data = df2015, aes(s1*LoG, s2*LoG, fill = elevation)) +
   coord_equal()
 dev.off()
 
-# write.csv(df, "/small_region/data/dat_8520_small_area_300_by_300_original.csv")
+# write.csv(df, file.path(small_region_data_dir, "dat_8520_small_area_300_by_300_original.csv"))
 
 subset1985a <- dat85.all %>% 
   filter(Longitude >= range_x[1] & Longitude <= range_x[2]) %>% 
@@ -807,7 +811,7 @@ combined_plot_obs_8515_str_box_tl <- plot.obs85.str.box + plot.obs15.str.box +
   theme(axis.text = element_text(size = 24),
         plot.margin = margin(t = 20, r = 10, b = 20, l = 10))
 
-png(filename = "/small_region/data/plots/obs_8515_str_box_inside_title.png", height = 5000, width = 6000, res = 300)
+png(filename = file.path(small_region_plot_dir, "obs_8515_str_box_inside_title.png"), height = 5000, width = 6000, res = 300)
 combined_plot_obs_8515_str_box_tl
 dev.off()
 
@@ -838,7 +842,7 @@ combined_plot_obs_8515_str_boxgrey_tl <- plot.obs85.str.boxgrey + plot.obs15.str
   theme(axis.text = element_text(size = 24),
         plot.margin = margin(t = 20, r = 10, b = 20, l = 10))
 
-png(filename = "/small_region/data/plots/obs_8515_str_boxgrey_inside_title.png", height = 5000, width = 6000, res = 300)
+png(filename = file.path(small_region_plot_dir, "obs_8515_str_boxgrey_inside_title.png"), height = 5000, width = 6000, res = 300)
 combined_plot_obs_8515_str_boxgrey_tl
 dev.off()
 
@@ -853,7 +857,7 @@ plot.obsdiff.boxgrey <- plot.obsdiff +
              size = 0.5,
              inherit.aes = FALSE)
 
-png(filename = "/small_region/data/plots/obs_diff_8515_boxgrey_inside_title.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(small_region_plot_dir, "obs_diff_8515_boxgrey_inside_title.png"), height = 2500, width = 6000, res = 300)
 plot.obsdiff.boxgrey
 dev.off()
 
@@ -868,7 +872,7 @@ plot.elevation.str.box <- plot.elevation.str +
              size = 0.5,
              inherit.aes = FALSE)
 
-png(filename="/small_region/data/plots/elevation_str_box_full.png", height = 2500, width = 6000, res = 300)
+png(filename = file.path(small_region_plot_dir, "elevation_str_box_full.png"), height = 2500, width = 6000, res = 300)
 plot.elevation.str.box
 dev.off()
 
@@ -883,7 +887,7 @@ plot.elevation.str.boxgrey <- plot.elevation.str +
              size = 0.5,
              inherit.aes = FALSE)
 
-png(filename="/small_region/data/plots/elevation_str_boxgrey_full.png", height = 2500, width = 6000, res = 300)
+png(filename=  file.path(small_region_plot_dir, "elevation_str_boxgrey_full.png"), height = 2500, width = 6000, res = 300)
 plot.elevation.str.boxgrey
 dev.off()
 
@@ -1085,7 +1089,7 @@ dat <- dat %>% mutate(trees = round(trees, digits = 0)/100)
 index <- rep(c(1:10000), TIME+1)
 dat <- cbind(index, dat)
 
-# write.csv(dat, "/small_region/data/dat_8520_small_area_100_by_100_average_aggregate_from_300_by_300.csv")
+# write.csv(dat, file.path(small_region_data_dir, "dat_8520_small_area_100_by_100_average_aggregate_from_300_by_300.csv"))
 
 LoG.100 <- LoG * 3
 
