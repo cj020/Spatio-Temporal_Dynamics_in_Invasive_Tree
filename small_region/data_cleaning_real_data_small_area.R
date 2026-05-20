@@ -21,7 +21,10 @@ TIME <- 35
 SIZE <- 100
 
 setwd("/small_region/data/")
-dat.original <- read.csv("/small_region/data/dat_8520_small_area_300_by_300_original.csv")
+data_small_region_dir <- "/small_region/data"
+plot_small_region_dir <- "/small_region/data/plots"
+
+dat.original <- read.csv(file.path(data_small_region_dir, "dat_8520_small_area_300_by_300_original.csv"))
 
 dat <- dat.original[, c("year", "s1", "s2", "Longitude", "Latitude", "Stream", "DEM_30m", "trees")]
 index <- rep(1:(N*N), TIME+1)
@@ -53,10 +56,10 @@ trees.smth <- c(trees.smth, round(smooth.trees.prest, digits = 0))
 dat$original.trees <- dat$trees
 dat$trees <- trees.smth/SIZE
 
-write.csv(dat, "/small_region/data/dat_8520_small_area_300_by_300_smoothed_integered.csv")
+write.csv(dat, file.path(data_small_region_dir, "dat_8520_small_area_300_by_300_smoothed_integered.csv"))
 
 # Add a covariate as distance to the nearest stream
-dat <- read.csv("/small_region/data/dat_8520_small_area_300_by_300_smoothed_integered.csv")
+dat <- read.csv(file.path(data_small_region_dir, "dat_8520_small_area_300_by_300_smoothed_integered.csv"))
 data <- dat %>% filter(year == 1985)
 coord <- cbind(data["s1"], data["s2"])
 stream.cell <- data %>% filter(Stream == 1)
@@ -94,11 +97,11 @@ dat$distance.str <- rep(dist85.std, TIME+1)
 dat$DEM_30m <- rep(dem30m.std, TIME+1)
 dat$Stream <- rep(dat_85$Stream, TIME+1)
 
-write.csv(dat, "/small_region/data/dat_8520_small_area_300_by_300_smoothed_integered_standardized.csv")
+write.csv(dat, file.path(data_small_region_dir, "dat_8520_small_area_300_by_300_smoothed_integered_standardized.csv"))
 
 # Graph
 dat85 <- dat %>% filter(year == 1985)
-png(filename = "/small_region/data/plots/observation in 1985 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 1985 smoothed 300 by 300.png"))
 ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -115,7 +118,7 @@ ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat90 <- dat %>% filter(year == 1990)
-png(filename = "/small_region/data/plots/observation in 1990 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 1990 smoothed 300 by 300.png"))
 ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -132,7 +135,7 @@ ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat95 <- dat %>% filter(year == 1995)
-png(filename = "/small_region/data/plots/observation in 1995 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 1995 smoothed 300 by 300.png"))
 ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -149,7 +152,7 @@ ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat00 <- dat %>% filter(year == 2000)
-png(filename = "/small_region/data/plots/observation in 2000 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2000 smoothed 300 by 300.png"))
 ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -166,7 +169,7 @@ ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat05 <- dat %>% filter(year == 2005)
-png(filename = "/small_region/data/plots/observation in 2005 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2005 smoothed 300 by 300.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -183,7 +186,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat10 <- dat %>% filter(year == 2010)
-png(filename = "/small_region/data/plots/observation in 2010 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2010 smoothed 300 by 300.png"))
 ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -200,7 +203,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat15 <- dat %>% filter(year == 2015)
-png(filename = "/small_region/data/plots/observation in 2015 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2015 smoothed 300 by 300.png"))
 ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -217,7 +220,7 @@ ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = trees)) +
 dev.off()
 
 dat20 <- dat %>% filter(year == 2020)
-png(filename = "/small_region/data/plots/observation in 2020 smoothed 300 by 300.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2020 smoothed 300 by 300.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4") +
@@ -233,7 +236,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename="/small_region/data/plots/stream.png")
+png(filename = file.path(plot_small_region_dir, "stream.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = Stream)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -249,7 +252,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = Stream)) +
   coord_equal() 
 dev.off()
 
-png(filename="/small_region/data/plots/distance to stream.png")
+png(filename = file.path(plot_small_region_dir, "distance to stream.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = original.dist)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -265,7 +268,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = original.dist)) +
   coord_equal() 
 dev.off()
 
-png(filename="/small_region/data/plots/elevation.png")
+png(filename = file.path(plot_small_region_dir, "elevation.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = original.DEM_30m)) +
   geom_tile() +
   ggtitle("Elevation") +
@@ -329,12 +332,12 @@ dat.N100 <- dat.N100 %>% mutate(trees = round(trees, digits = 0)/100)
 index.N100 <- rep(c(1:(N.100 * N.100)), TIME+1)
 dat.N100 <- cbind(index.N100, dat.N100)
 
-write.csv(dat.N100, "/small_region/data/dat_8520_small_area_100_by_100_smoothed_integered.csv")
+write.csv(dat.N100, file.path(data_small_region_dir, "dat_8520_small_area_100_by_100_smoothed_integered.csv"))
 
 pic_limit <- c(0,1)
 
 data2015 <- dat.N100 %>% filter(year == 2015) %>% mutate(elevation = DEM_30m)
-png(filename = "/small_region/data/plots/observation in 2015 with average aggreagation 100 by 100.png")
+png(filename = file.path(plot_small_region_dir, "observation in 2015 with average aggreagation 100 by 100.png"))
 ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -350,7 +353,7 @@ ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = trees)) +
   coord_equal()
 dev.off()
 
-png(filename = "/small_region/data/plots/stream with average aggregation 100 by 100.png")
+png(filename = file.path(plot_small_region_dir, "stream with average aggregation 100 by 100.png"))
 ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = Stream)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -366,7 +369,7 @@ ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = Stream)) +
   coord_equal()
 dev.off()
 
-png(filename = "/small_region/data/plots/elevation with average aggregation 100 by 100.png")
+png(filename = file.path(plot_small_region_dir, "elevation with average aggregation 100 by 100.png"))
 ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = elevation)) +
   geom_tile() +
   ggtitle("Elevation with Average Aggregation 100 by 100") +
@@ -382,6 +385,6 @@ ggplot(data = data2015, aes(s1*LoG.100, s2*LoG.100, fill = elevation)) +
   coord_equal()
 dev.off()
 
-# dat <- read.csv("dat_8520_small_area_100_by_100_smoothed_integered_standardized.csv")
+# dat <- read.csv(file.path(data_small_region_dir, "dat_8520_small_area_100_by_100_smoothed_integered_standardized.csv"))
 
-# dat <- read.csv("dat_8520_small_area_100_by_100_smoothed.csv")
+# dat <- read.csv(file.path(data_small_region_dir, "dat_8520_small_area_100_by_100_smoothed.csv"))
