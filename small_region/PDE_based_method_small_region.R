@@ -913,5 +913,5 @@ dev.off()
 
 # output the result
 output <- par.table
-write.csv(output, file.path(output_dir, "MCMC_result_20000_real_data_100_by_100_zibinom_homo.csv"))
+write.csv(output, file.path(output_dir, "MCMC_result_20000_real_data_300_by_300_zibinom_homo.csv"))
 
