@@ -22,7 +22,7 @@ setwd("/small_region")
 source("functions/raster_and_homogenization_functions.R")
 
 data_dir <- "/small_region/data"
-output_dir <- "/small_region/output"
+output_dir <- "/small_region/output/PDE"
 
 # Dataset loading
 dat <- read.csv(file.path(data_dir, "dat_8520_small_area_300_by_300_smoothed_integered_standardized.csv"))

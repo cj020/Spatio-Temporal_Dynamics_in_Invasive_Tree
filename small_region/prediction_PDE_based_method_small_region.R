@@ -23,8 +23,8 @@ setwd("/small_region")
 source("functions/raster_and_homogenization_functions.R")
 
 data_dir <- "/small_region/data"
-output_dir <- "/small_region/output"
-result_dir <- "/small_region/result"
+output_dir <- "/small_region/output/PDE"
+result_dir <- "/small_region/result/PDE"
 
 dat <- read.csv(file.path(output_dir, "dat_8520_small_area_300_by_300_train_and_test.csv"))
 result.table <- read.csv(file.path(output_dir, "MCMC_result_20000_real_data_300_by_300_zibinom_homo.csv"))
