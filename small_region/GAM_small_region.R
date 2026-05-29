@@ -12,7 +12,7 @@ result_dir <- "/small_region/result/GAM"
 
 dat <- read.csv(file.path(data_dir, "dat_8520_small_area_300_by_300_smoothed_integered_standardized.csv"))
 
-# parameters setting
+# Parameters setting
 # N (number of grids = N * N)
 N <- 300
 # Number of years
@@ -33,7 +33,7 @@ dat <- dat %>% mutate(edge = ifelse(s1 == 1 |
                                       s2 == N, 1, 0))
 
 
-# Plot check - tree cover in 1985
+# Graph check - tree cover in 1985
 dat85 <- dat %>% filter(year == 1985)
 ggplot(data = dat85, aes(s1, s2, fill = trees)) +
   geom_tile() +
