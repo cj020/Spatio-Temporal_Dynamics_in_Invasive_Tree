@@ -1,0 +1,5 @@
+training: year = 1985-2015; test: time = 2016-2020.
+MSE training data original RT: [1] 0.01086658
+MSE training data pruned RT: [1] 0.01086658
+MSE test data original RT: [1] 0.01606356
+MSE test data pruned RT: [1] 0.01606356
