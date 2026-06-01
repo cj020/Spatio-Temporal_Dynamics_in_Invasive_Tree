@@ -1,4 +1,4 @@
-# RT GAM in small region
+# RT in small region
 
 library(tidyverse)
 library(mgcv)

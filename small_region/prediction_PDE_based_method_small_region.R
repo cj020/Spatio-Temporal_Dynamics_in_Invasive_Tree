@@ -333,7 +333,7 @@ write.csv(dat, file.path(result_dir, "prediction_real_data_300_by_300_homogeniza
 # Graph check
 pic_limit <- c(0,1)
 dat85 <- dat %>% filter(year == 1985)
-png(filename = "observation in 1985.png")
+png(filename = file.path(output_dir, "observation in 1985.png"))
 ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -348,7 +348,7 @@ ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal()
 dev.off()
 
-png(filename = "expectation in 1985.png")
+png(filename = file.path(output_dir, "expectation in 1985.png"))
 ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -364,7 +364,7 @@ ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 1985.png")
+png(filename = file.path(output_dir, "estimated mu in 1985.png"))
 ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -381,7 +381,7 @@ ggplot(data = dat85, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat90 <- dat %>% filter(year == 1990)
-png(filename = "observation in 1990.png")
+png(filename = file.path(output_dir, "observation in 1990.png"))
 ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -397,7 +397,7 @@ ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 1990.png")
+png(filename = file.path(output_dir, "expectation in 1990.png"))
 ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -413,7 +413,7 @@ ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 1990.png")
+png(filename = file.path(output_dir, "estimated mu in 1990.png"))
 ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -430,7 +430,7 @@ ggplot(data = dat90, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat95 <- dat %>% filter(year == 1995)
-png(filename = "observation in 1995.png")
+png(filename = file.path(output_dir, "observation in 1995.png"))
 ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -446,7 +446,7 @@ ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 1995.png")
+png(filename = file.path(output_dir, "expectation in 1995.png"))
 ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -462,7 +462,7 @@ ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 1995.png")
+png(filename = file.path(output_dir, "estimated mu in 1995.png"))
 ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -479,7 +479,7 @@ ggplot(data = dat95, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat00 <- dat %>% filter(year == 2000)
-png(filename = "observation in 2000.png")
+png(filename = file.path(output_dir, "observation in 2000.png"))
 ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -495,7 +495,7 @@ ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 2000.png")
+png(filename = file.path(output_dir, "expectation in 2000.png"))
 ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -511,7 +511,7 @@ ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2000.png")
+png(filename = file.path(output_dir, "estimated mu in 2000.png"))
 ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -528,7 +528,7 @@ ggplot(data = dat00, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat05 <- dat %>% filter(year == 2005)
-png(filename = "observation in 2005.png")
+png(filename = file.path(output_dir, "observation in 2005.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -544,7 +544,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 2005.png")
+png(filename = file.path(output_dir, "expectation in 2005.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -560,7 +560,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2005.png")
+png(filename = file.path(output_dir, "estimated mu in 2005.png"))
 ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -577,7 +577,7 @@ ggplot(data = dat05, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat10 <- dat %>% filter(year == 2010)
-png(filename = "observation in 2010.png")
+png(filename = file.path(output_dir, "observation in 2010.png"))
 ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -593,7 +593,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 2010.png")
+png(filename = file.path(output_dir, "expectation in 2010.png"))
 ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -609,7 +609,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2010.png")
+png(filename = file.path(output_dir, "estimated mu in 2010.png"))
 ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -626,7 +626,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat15 <- dat %>% filter(year == 2015)
-png(filename = "observatation in 2015.png")
+png(filename = file.path(output_dir, "observatation in 2015.png"))
 ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -642,7 +642,7 @@ ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "expectation in 2015.png")
+png(filename = file.path(output_dir, "expectation in 2015.png"))
 ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -658,7 +658,7 @@ ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2015.png")
+png(filename = file.path(output_dir, "estimated mu in 2015.png"))
 ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -675,7 +675,7 @@ ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat16 <- dat %>% filter(year == 2016)
-png(filename = "observation in 2016.png")
+png(filename = file.path(output_dir, "observation in 2016.png"))
 ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -691,7 +691,7 @@ ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "prediction in 2016.png")
+png(filename = file.path(output_dir, "prediction in 2016.png"))
 ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -707,7 +707,7 @@ ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2016.png")
+png(filename = file.path(output_dir, "estimated mu in 2016.png"))
 ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -724,7 +724,7 @@ ggplot(data = dat16, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat18 <- dat %>% filter(year == 2018)
-png(filename = "observation in 2018.png")
+png(filename = file.path(output_dir, "observation in 2018.png"))
 ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -740,7 +740,7 @@ ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "prediction in 2018.png")
+png(filename = file.path(output_dir, "prediction in 2018.png"))
 ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -756,7 +756,7 @@ ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2018.png")
+png(filename = file.path(output_dir, "estimated mu in 2018.png"))
 ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -773,7 +773,7 @@ ggplot(data = dat18, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat20 <- dat %>% filter(year == 2020)
-png("observation in 2020.png")
+png(filename = file.path(output_dir, "observation in 2020.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -789,7 +789,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = trees)) +
   coord_equal() 
 dev.off()
 
-png(filename = "prediction in 2020.png")
+png(filename = file.path(output_dir, "prediction in 2020.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -805,7 +805,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = pred.expectation)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated mu in 2020.png")
+png(filename = file.path(output_dir, "estimated mu in 2020.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
@@ -821,7 +821,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated diffusion.png")
+png(filename = file.path(output_dir, "estimated diffusion.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = diffu.prediction)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -837,7 +837,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = diffu.prediction)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated growth.png")
+png(filename = file.path(output_dir, "estimated growth.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = growth.prediction)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -853,7 +853,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = growth.prediction)) +
   coord_equal() 
 dev.off()
 
-png(filename = "estimated gamma.png")
+png(filename = file.path(output_dir, "estimated gamma.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = gamma.prediction)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -868,7 +868,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = gamma.prediction)) +
   coord_equal() 
 dev.off()
 
-png(filename = "probability0 in 2020.png")
+png(filename = file.path(output_dir, "probability0 in 2020.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, 
                          fill = gamma.prediction+(1-gamma.prediction)*(1-mu.pred)^100)) +
   geom_tile() +
@@ -885,7 +885,7 @@ ggplot(data = dat20, aes(s1*LoG, s2*LoG,
   coord_equal() 
 dev.off()
 
-png(filename = "probability0 in 2000.png")
+png(filename = file.path(output_dir, "probability0 in 2000.png"))
 ggplot(data = dat00, aes(s1*LoG, s2*LoG, 
                          fill = gamma.prediction+(1-gamma.prediction)*(1-mu.pred)^100)) +
   geom_tile() +
@@ -902,7 +902,7 @@ ggplot(data = dat00, aes(s1*LoG, s2*LoG,
   coord_equal() 
 dev.off()
 
-png(filename = "probability0 in 2010.png")
+png(filename = file.path(output_dir, "probability0 in 2010.png"))
 ggplot(data = dat10, aes(s1*LoG, s2*LoG, 
                          fill = gamma.prediction+(1-gamma.prediction)*(1-mu.pred)^100)) +
   geom_tile() +
@@ -919,7 +919,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG,
   coord_equal() 
 dev.off()
 
-png(filename = "aggregated stream.png")
+png(filename = file.path(output_dir, "aggregated stream.png"))
 ggplot(data = dat20, aes(s1*LoG, s2*LoG, fill = stream.homog)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="blue") +
@@ -938,34 +938,34 @@ dev.off()
 histdat.train <- dat %>% filter(year >= 1986 & year <= 1985+TRAIN & edge == 0 & Stream == 0)
 histdat.test <- dat %>% filter(year > 1985+TRAIN & edge == 0 & Stream == 0)
 
-png(filename = "histogram comparison training dataset obs vs expectation.png")
+png(filename = file.path(output_dir, "histogram comparison training dataset obs vs expectation.png"))
 par(mfrow=c(1,2))
 hist(histdat.train[ ,"trees"], xlab = " ", main = "Distribution of Observed Tree Coverage \n(training)")
 hist(histdat.train[ ,"pred.expectation"], xlab = " ", main = "Distribution of Expected Tree Coverage \n(training)")
 dev.off()
 
-png(filename = "histogram training dataset obs.png")
+png(filename = file.path(output_dir, "histogram training dataset obs.png"))
 par(mfrow=c(1,1))
 hist(histdat.train[ ,"trees"], xlab = " ", main = "Distribution of Observed Tree Coverage \n(training)")
 dev.off()
 
-png(filename = "histogram training dataset expectation.png")
+png(filename = file.path(output_dir, "histogram training dataset expectation.png"))
 par(mfrow=c(1,1))
 hist(histdat.train[ ,"pred.expectation"], xlab = " ", main = "Distribution of Expected Tree Coverage \n(training)")
 dev.off()
 
-png(filename = "histogram comparison test dataset obs vs prediction.png")
+png(filename = file.path(output_dir, "histogram comparison test dataset obs vs prediction.png"))
 par(mfrow=c(1,2))
 hist(histdat.test[ ,"trees"], xlab = " ", main = "Distribution of Observed Tree Coverage \n(test)")
 hist(histdat.test[ ,"pred.expectation"], xlab = " ", main = "Distribution of Predicted Tree Coverage \n(test)")
 dev.off()
 
-png(filename = "histogram test dataset obs.png")
+png(filename = file.path(output_dir, "histogram test dataset obs.png"))
 par(mfrow=c(1,1))
 hist(histdat.test[ ,"trees"], xlab = " ", main = "Distribution of Observed Tree Coverage \n(test)")
 dev.off()
 
-png(filename = "histogram test dataset prediction.png")
+png(filename = file.path(output_dir, "histogram test dataset prediction.png"))
 par(mfrow=c(1,1))
 hist(histdat.test[ ,"pred.expectation"], xlab = " ", main = "Distribution of Predicted Tree Coverage \n(test)")
 dev.off()
