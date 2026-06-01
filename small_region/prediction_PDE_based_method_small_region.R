@@ -626,7 +626,7 @@ ggplot(data = dat10, aes(s1*LoG, s2*LoG, fill = mu.pred)) +
 dev.off()
 
 dat15 <- dat %>% filter(year == 2015)
-png(filename = file.path(output_dir, "observatation in 2015.png"))
+png(filename = file.path(output_dir, "observation in 2015.png"))
 ggplot(data = dat15, aes(s1*LoG, s2*LoG, fill = trees)) +
   geom_tile() +
   scale_fill_gradient(low="white", high="green4", limit = pic_limit) +
