@@ -1,7 +1,7 @@
 
 # A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species
 
-This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species."**
+This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species"** by Jiaqi Chen, Huijing Du and Yawen Guan.
 
 ## Dataset and Spatial Resolution
 
