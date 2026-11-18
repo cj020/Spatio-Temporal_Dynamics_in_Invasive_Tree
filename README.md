@@ -5,7 +5,14 @@ This repository contains the code and data used in the manuscript **"A Bayesian 
 
 ## Dataset and Spatial Resolution
 
-The datasets at resolutions of 300 × 300 and 100 × 100 cover the same geographic region but differ in spatial resolution. The primary analysis in the manuscript uses the 300 × 300 resolution. However, to reduce computational time, the code can also be run using the 100 × 100 resolution. The results obtained at the two resolutions are expected to be similar.
+The data cover a 9 km × 9 km subregion near the Niobrara River in the Nebraska Sandhills.
+The response is annual tree cover (integer percentage, 0 to 100) from the Rangeland
+Analysis Platform for 1985–2020. The covariates are distance to the nearest stream and
+elevation.
+
+The data are provided at two spatial resolutions. The 300 × 300 grid (30 m pixels) is
+used for the analysis in the manuscript. The 100 × 100 grid (90 m pixels) is obtained by
+averaging and is provided for faster runs to test the code.
 
 ## Code and Analysis
 
