@@ -18,10 +18,10 @@ averaging and is provided for faster runs to test the code.
 
 The following scripts correspond to the main steps of data preparation and statistical analysis:
 
-1. **Generate the study region:**  
+1. **Create the dataset for the study region from the raw CSV files:**
    `dataset_generating/dataset_generating_small_area.R`
 
-2. **Clean the data:**  
+2. **Prepare the data for model fitting:**  
    `small_region/data_cleaning_real_data_small_area.R`
 
 3. **PDE-based method:**  
