@@ -9,6 +9,7 @@ The repository ships a 100 × 100 example for speed, the paper uses 300 × 300, 
 
 ## Requirements
 R version: 4.5.
+
 R packages: raster, fields, RColorBrewer, rasterVis, mvtnorm, gridExtra, fBasics, coda, tidyverse, egg, Rcpp, RcppArmadillo, Matrix, mgcv, caret, rpart, rpart.plot, spdep, INLA.
 
 ## Folder guide
