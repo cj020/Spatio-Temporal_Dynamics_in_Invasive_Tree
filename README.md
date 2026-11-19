@@ -8,7 +8,8 @@ This repository contains the code and data used in the manuscript **"A Bayesian 
 The repository ships a 100 × 100 example for speed, the paper uses 300 × 300, and results will differ slightly.
 
 ## Requirements
-R version and packages (mgcv, INLA, rpart, Rcpp).
+R version: 4.5.
+R packages: raster, fields, RColorBrewer, rasterVis, mvtnorm, gridExtra, fBasics, coda, tidyverse, egg, Rcpp, RcppArmadillo, Matrix, mgcv, caret, rpart, rpart.plot, spdep, INLA.
 
 ## Folder guide
 One line each for raw_data, dataset_generating, functions, and small_region (with its data, output, result).
