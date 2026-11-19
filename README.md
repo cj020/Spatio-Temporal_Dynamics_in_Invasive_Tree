@@ -1,7 +1,30 @@
 
 # A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species
 
-This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species"** by Jiaqi Chen, Huijing Du and Yawen Guan.
+## Summary
+This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species"** by Jiaqi Chen, Huijing Du and Yawen Guan. We propose a Bayesian mechanistic framework for invasive tree cover that combines an ecological diffusion–logistic growth partial differential equation (PDE) with a zero-inflated binomial observation model. Then compare our model with GAM, RT and INLA.
+
+## Example data note. 
+The repository ships a 100 × 100 example for speed, the paper uses 300 × 300, and results will differ slightly.
+
+## Requirements
+R version and packages (mgcv, INLA, rpart, Rcpp).
+
+## Folder guide
+One line each for raw_data, dataset_generating, functions, and small_region (with its data, output, result).
+
+## Script guide
+One line per script in small_region saying what it does.
+
+## Function guide.
+One line per function in functions with inputs and output.
+
+## Run order. 
+Clean data, fit the PDE model, predict, fit the benchmarks, compare, with rough run times.
+
+## Paper map. Which script produces each table and figure.
+
+## Citation, license, contact.
 
 ## Dataset and Spatial Resolution
 
