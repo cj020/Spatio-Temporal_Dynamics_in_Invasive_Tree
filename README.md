@@ -1,70 +1,85 @@
-
 # A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species
 
-## Summary
-This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species"** by Jiaqi Chen, Huijing Du and Yawen Guan. We propose a Bayesian mechanistic framework for invasive tree cover that combines an ecological diffusion–logistic growth partial differential equation (PDE) with a zero-inflated binomial observation model. Then compare our model with GAM, RT and INLA.
+## 1. Overview
 
-## Example data note. 
-The repository ships a 100 × 100 example for speed, the paper uses 300 × 300, and results will differ slightly.
+This repository contains the code and data used in the manuscript **"A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species"** by Jiaqi Chen, Huijing Du, and Yawen Guan.
 
-## Requirements
-R version: 4.5.
+We propose a Bayesian mechanistic framework for modeling the spatiotemporal dynamics of invasive tree cover. The framework combines a diffusion–logistic growth partial differential equation (PDE) with a zero-inflated binomial observation model to account for both the ecological processes governing tree cover dynamics and the excess zeros in the observed data.
 
-R packages: raster, fields, RColorBrewer, rasterVis, mvtnorm, gridExtra, fBasics, coda, tidyverse, egg, Rcpp, RcppArmadillo, Matrix, mgcv, caret, rpart, rpart.plot, spdep, INLA.
+We compare the proposed PDE-based model with three benchmark approaches:
 
-## Folder guide
-`raw_data`: The `examples` folder contains sample datasets for the years 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2019, and 2020.
+- Generalized Additive Models (GAM)
+- Regression Trees (RT)
+- Integrated Nested Laplace Approximation (INLA)
 
-`dataset_generating`:
+The repository provides the data-processing scripts, model implementation, prediction procedures, and code for fitting the benchmark models.
 
-`functions`: 
+## 2. Example Data
 
-`small_region` (with its data, output, result).
+For computational efficiency and ease of demonstration, this repository includes a **100 × 100 grid example dataset**. The analysis presented in the manuscript uses the full **300 × 300 grid dataset**.
 
-## Script guide
-One line per script in small_region saying what it does.
+Because of the difference in spatial resolution, results obtained using the example dataset may differ slightly from those reported in the manuscript.
 
-## Function guide.
-One line per function in functions with inputs and output.
+## 3. Requirements
 
-## Run order. 
-Clean data, fit the PDE model, predict, fit the benchmarks, compare, with rough run times.
+**R version:** 4.5
 
-## Paper map. Which script produces each table and figure.
+**Required R packages:**
 
-## Citation, license, contact.
+`raster`, `fields`, `RColorBrewer`, `rasterVis`, `mvtnorm`, `gridExtra`, `fBasics`, `coda`, `tidyverse`, `egg`, `Rcpp`, `RcppArmadillo`, `Matrix`, `mgcv`, `caret`, `rpart`, `rpart.plot`, `spdep`, and `INLA`.
 
-## Dataset and Spatial Resolution
+Note: INLA may require installation from its official repository rather than directly from CRAN.
 
-The data cover a 9 km × 9 km subregion near the Niobrara River in the Nebraska Sandhills.
-The response is annual tree cover (integer percentage, 0 to 100) from the Rangeland
-Analysis Platform for 1985–2020. The covariates are distance to the nearest stream and
-elevation.
+## 4. Repository Structure
 
-The data are provided at two spatial resolutions. The 300 × 300 grid (30 m pixels) is
-used for the analysis in the manuscript. The 100 × 100 grid (90 m pixels) is obtained by
-averaging and is provided for faster runs to test the code.
+The repository is organized into the following main folders:
 
-## Code and Analysis
+| Folder | Description |
+|---|---|
+| `raw_data` | Annual tree cover estimates from 1985 to 2020 obtained from the Rangeland Analysis Platform (RAP). The `examples` subfolder contains sample datasets for 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2019, and 2020. |
+| `dataset_generating` | R scripts for generating the study-region dataset from the raw data. |
+| `functions` | General-purpose R functions used in the analysis, including numerical PDE solvers and homogenization procedures. |
+| `small_region` | Working directory for the analysis of the study region, including the processed datasets and scripts for model fitting, prediction, and benchmark comparisons. |
 
-The following scripts correspond to the main steps of data preparation and statistical analysis:
+## 5. Main Scripts
 
-1. **Create the dataset for the study region from the raw CSV files:**
-   `dataset_generating/dataset_generating_small_area.R`
+The following scripts implement the main steps of the analysis.
 
-2. **Prepare the data for model fitting:**  
-   `small_region/data_cleaning_real_data_small_area.R`
+| Script | Description |
+|---|---|
+| `dataset_generating/dataset_generating_small_area.R` | Generates the dataset for the study region from the raw tree cover data. |
+| `small_region/data_cleaning_real_data_small_area.R` | Performs data cleaning and prepares the dataset for model fitting. |
+| `small_region/PDE_based_method_small_region.R` | Implements the proposed Bayesian PDE-based mechanistic model, including model fitting and prediction. |
+| `small_region/GAM_small_region.R` | Fits the Generalized Additive Model (GAM) benchmark. |
+| `small_region/RT_small_region.R` | Fits the Regression Tree (RT) benchmark. |
+| `small_region/INLA_small_region.R` | Fits the INLA benchmark. |
 
-3. **PDE-based method:**  
-   `small_region/PDE_based_method_small_region.R`
+## 6. General Workflow
 
-4. **Generalized additive model (GAM):**  
-   `small_region/GAM_small_region.R`
+To reproduce the analysis, the scripts should generally be executed in the following order:
 
-5. **Regression tree (RT):**  
-   `small_region/RT_small_region.R`
+1. **Data generation:** Run `dataset_generating_small_area.R` to generate the study-region dataset from the raw data.
+2. **Data preprocessing:** Run `data_cleaning_real_data_small_area.R` to clean and prepare the data.
+3. **PDE-based model:** Run `PDE_based_method_small_region.R` to fit the proposed model and obtain predictions.
+4. **Benchmark models:** Run the GAM, RT, and INLA scripts to fit the corresponding benchmark models and generate predictions.
+5. **Model comparison:** Compare the predictive performance of the proposed model with the benchmark approaches.
 
-6. **Integrated Nested Laplace Approximation (INLA):**  
-   `small_region/INLA_small_region.R`
+The general-purpose functions required by these scripts are provided in the `functions` folder.
 
-The scripts can be run individually to reproduce the corresponding data preparation steps and model analyses.
+## 7. Citation
+
+If you use this code or data in your research, please cite the associated manuscript:
+
+**Chen, J., Du, H., and Guan, Y.** *A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species.*
+
+[Add the journal or preprint information and DOI when available.]
+
+## 8. License
+
+[Specify the repository license here.]
+
+## 9. Contact
+
+For questions about the code or the analysis, please contact:
+
+**Jiaqi Chen**
