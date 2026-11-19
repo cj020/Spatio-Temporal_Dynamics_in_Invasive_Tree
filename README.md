@@ -13,7 +13,13 @@ R version: 4.5.
 R packages: raster, fields, RColorBrewer, rasterVis, mvtnorm, gridExtra, fBasics, coda, tidyverse, egg, Rcpp, RcppArmadillo, Matrix, mgcv, caret, rpart, rpart.plot, spdep, INLA.
 
 ## Folder guide
-One line each for raw_data, dataset_generating, functions, and small_region (with its data, output, result).
+`raw_data`: The `examples` folder contains sample datasets for the years 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2019, and 2020.
+
+`dataset_generating`:
+
+`functions`: 
+
+`small_region` (with its data, output, result).
 
 ## Script guide
 One line per script in small_region saying what it does.
