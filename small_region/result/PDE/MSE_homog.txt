@@ -1,3 +1,0 @@
-training: year = 1985-2015; test: time = 2016-2020.
-MSE PDE training data: [1] 0.013106
-MSE PDE test data: [1] 0.0186016

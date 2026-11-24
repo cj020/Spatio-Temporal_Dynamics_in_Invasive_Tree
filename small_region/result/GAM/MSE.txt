@@ -1,3 +1,0 @@
-training: year 1985-2015; test: year 2016-2020.
-MSE of training dataset: [1] 0.01617766
-MSE of test dataset: [1] 0.02327572

@@ -1,2 +1,0 @@
-prediction coverage in training data (sp): [1] 0.2640465
-prediction coverage in test data (sp): [1] 0.2099694

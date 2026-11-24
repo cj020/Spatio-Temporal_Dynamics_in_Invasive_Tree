@@ -1,9 +1,0 @@
-beta diffusion intercept: [1] 0.1449428
-beta growth intercept: [1] 0.06649668
-beta gamma intercept: [1] 0.1070946
-beta diffusion dist: [1] 0.2783861
-beta growth dist: [1] 0.1442928
-beta gamma dist: [1] 0.2763862
-beta diffusion dm: [1] 0.1139443
-beta growth dm: [1] 0.1168442
-beta gamma dm: [1] 0.1470926

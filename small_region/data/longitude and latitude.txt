@@ -1,3 +1,0 @@
-dimension N: [1] 300
-longitude range: [1] -100.3346 -100.2540
-latitude range: [1] 42.86405 42.94464
