@@ -2,7 +2,7 @@
 
 **Jiaqi Chen, Huijing Du, and Yawen Guan**
 
-This repository fits a Bayesian ecological-diffusion and logistic-growth PDE, with a zero-inflated binomial observation model, to satellite-derived invasive tree cover. It then predicts held-out cover and compares that mechanistic model with a generalized additive model, a spatial model fitted by INLA, and a regression tree.
+This repository fits a Bayesian ecological-diffusion and logistic-growth PDE, with a zero-inflated binomial observation model, to satellite-derived invasive tree cover. It then predicts held-out cover and compares that mechanistic model with a generalized additive model, a regression tree, and a spatial model fitted by INLA.
 
 ## Example data
 
