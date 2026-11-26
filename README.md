@@ -1,6 +1,6 @@
 # A Bayesian Mechanistic Model of Spatiotemporal Dynamics in Invasive Tree Species
 
-**Jiaqi Chen, Huijing Du, and Yawen Guan**
+**Jiaqi Chen, Huijing Du, Yawen Guan**
 
 ## Summary
 
